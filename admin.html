@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rotaract Loop: Admin Portal</title>
+  <meta name="description" content="Admin dashboard for managing Rotaract Loop community registrations" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#1e3a8a" />
+  <meta name="color-scheme" content="light" />
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://apply.rsamdio.org/admin" />
+
+  <!-- Open Graph -->
+  <meta property="og:url" content="https://apply.rsamdio.org/admin" />
+  <meta property="og:title" content="Rotaract Loop: Admin Portal" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://apply.rsamdio.org/assets/images/ogimage.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:description" content="Admin dashboard for managing Rotaract Loop community registrations" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css?v=3.0" />
+  <link rel="stylesheet" href="assets/css/admin.css?v=3.0" />
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/webp" href="assets/images/favicon.webp" />
+  <link rel="alternate icon" href="assets/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/images/favicon.webp" />
+</head>
+<body>
+  <div class="admin-container" id="adminContainer">
+    <!-- Secure Admin Authentication Screen -->
+    <div class="login-screen" id="loginScreen">
+      <div class="login-card">
+        <img src="assets/images/rsamdio.webp" alt="RSAMDIO Logo" class="login-logo" onerror="this.style.display='none'" />
+        <h1 class="login-title">Rotaract Loop Admin</h1>
+        <p class="login-subtitle">Sign in to manage Rotaract Loop community registrations</p>
+        
+        <form class="login-form" id="adminLoginForm" onsubmit="return false;">
+          <div class="form-group">
+            <label for="adminEmailInput">Admin Email</label>
+            <input 
+              type="email" 
+              id="adminEmailInput" 
+              class="form-input" 
+              placeholder="e.g. admin@rsamdio.org" 
+              autocomplete="username"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="adminPasskeyInput">Admin Password</label>
+            <div style="position: relative;">
+              <input 
+                type="password" 
+                id="adminPasskeyInput" 
+                class="form-input" 
+                placeholder="Enter your admin password..." 
+                autocomplete="current-password"
+                required 
+              />
+              <button 
+                type="button" 
+                id="togglePasskeyBtn" 
+                style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--color-text-muted); font-size: 13px; font-weight: 600;"
+              >
+                Show
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--full" id="adminLoginBtn">
+            <span id="loginBtnText">Sign In to Admin</span>
+            <span id="loginBtnSpinner" class="spinner hidden"></span>
+          </button>
+        </form>
+
+        <div id="loginError" class="error-message hidden"></div>
+      </div>
+    </div>
+
+    <!-- Admin Dashboard Main View -->
+    <div class="admin-dashboard hidden" id="adminDashboard">
+      <!-- Admin Top Navigation Header -->
+      <header class="admin-header">
+        <div class="admin-header__inner">
+          <div class="admin-header__info">
+            <img src="assets/images/rsamdio.webp" alt="RSAMDIO Logo" class="admin-header__logo" onerror="this.style.display='none'" />
+            <div class="admin-header__title-wrap">
+              <h1 class="admin-header__title">Rotaract Loop Community</h1>
+              <span class="admin-header__tag" id="backendIndicator">Connected to Google Sheets REST API</span>
+            </div>
+          </div>
+
+          <div class="admin-header__actions">
+            <button id="refreshBtn" class="btn-icon" title="Refresh Directory">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.48L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+              </svg>
+            </button>
+            <button id="exportExcelBtn" class="btn btn-export btn--export-excel" title="Download Excel Spreadsheet (.xls)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="8" y1="13" x2="16" y2="13"/>
+                <line x1="8" y1="17" x2="16" y2="17"/>
+                <polyline points="10 9 9 9 8 9"/>
+              </svg>
+              <span>Export Excel</span>
+            </button>
+            <button id="exportCsvBtn" class="btn btn-export btn--export-csv" title="Download CSV (.csv)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              <span>Export CSV</span>
+            </button>
+            <button id="logoutBtn" class="btn btn--secondary" style="padding: 9px 16px; font-size: 13px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>
+              </svg>
+              <span>Logout</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div class="admin-content">
+        <!-- Community Directory Key Metrics -->
+        <section class="stats-section">
+          <div class="stats-grid">
+            <div class="stat-card stat-card--total">
+              <div class="stat-card__value" id="statTotal">0</div>
+              <div class="stat-card__label">Total Entrepreneurs</div>
+            </div>
+            <div class="stat-card stat-card--categories">
+              <div class="stat-card__value" id="statCategories">0</div>
+              <div class="stat-card__label">Categories Represented</div>
+            </div>
+            <div class="stat-card stat-card--districts">
+              <div class="stat-card__value" id="statDistricts">0</div>
+              <div class="stat-card__label">Districts Represented</div>
+            </div>
+            <div class="stat-card stat-card--clubs">
+              <div class="stat-card__value" id="statClubs">0</div>
+              <div class="stat-card__label">Clubs Participating</div>
+            </div>
+          </div>
+
+          <!-- Quick Category Filter Pills -->
+          <div class="category-stats-wrap">
+            <div class="category-stats-header">
+              <h3 class="category-stats-title">Category Distribution</h3>
+              <span style="font-size: 12px; color: var(--color-text-muted);">Click any category to filter</span>
+            </div>
+            <div class="category-pills-scroller" id="categoryPillsContainer">
+              <!-- Dynamically rendered -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Directory Data Section -->
+        <section class="applications-section">
+          <!-- Toolbar & Filters -->
+          <div class="table-toolbar">
+            <div class="table-toolbar__header">
+              <h2 class="table-title">Community Directory</h2>
+              <span class="table-count" id="resultsCount">0 entrepreneurs</span>
+            </div>
+
+            <div class="table-toolbar__controls">
+              <div class="filters-bar">
+                <!-- Custom Styled Category Filter -->
+                <div class="filter-item">
+                  <div class="custom-filter-dropdown" id="categoryDropdownWrap">
+                    <button type="button" class="custom-filter-trigger" id="categoryDropdownBtn" aria-haspopup="listbox" aria-expanded="false" title="Filter by category">
+                      <span class="custom-filter-trigger__text" id="categoryDropdownLabel">All Categories (25)</span>
+                      <svg class="custom-filter-trigger__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                      </svg>
+                    </button>
+                    <div class="custom-filter-menu" id="categoryDropdownMenu">
+                      <div class="custom-filter-search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="11" cy="11" r="8"/>
+                          <path d="m21 21-4.35-4.35"/>
+                        </svg>
+                        <input type="text" id="categorySearchInput" placeholder="Search categories..." autocomplete="off" />
+                      </div>
+                      <ul class="custom-filter-options" id="categoryOptionsList" role="listbox">
+                        <!-- Populated dynamically -->
+                      </ul>
+                    </div>
+                  </div>
+                  <input type="hidden" id="categoryFilter" value="" />
+                </div>
+
+                <!-- Custom Styled District Filter -->
+                <div class="filter-item">
+                  <div class="custom-filter-dropdown" id="districtDropdownWrap">
+                    <button type="button" class="custom-filter-trigger" id="districtDropdownBtn" aria-haspopup="listbox" aria-expanded="false" title="Filter by district">
+                      <span class="custom-filter-trigger__text" id="districtDropdownLabel">All Districts</span>
+                      <svg class="custom-filter-trigger__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                      </svg>
+                    </button>
+                    <div class="custom-filter-menu" id="districtDropdownMenu">
+                      <ul class="custom-filter-options" id="districtOptionsList" role="listbox">
+                        <!-- Populated dynamically -->
+                      </ul>
+                    </div>
+                  </div>
+                  <input type="hidden" id="districtFilter" value="" />
+                </div>
+
+                <!-- Search Input -->
+                <div class="search-input-wrapper">
+                  <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                  </svg>
+                  <input type="text" id="searchInput" class="search-input" placeholder="Search by business, rotaractor, club, city, district..." />
+                  <button type="button" id="clearSearchBtn" class="search-clear hidden" title="Clear search">✕</button>
+                </div>
+
+                <button id="clearFiltersBtn" class="btn-text" title="Reset all filters">Reset Filters</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desktop Table Wrapper -->
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>
+                    <button class="sort-btn" data-sort="business_name">
+                      <span>Business Name</span>
+                      <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 13l5 5 5-5M7 6l5-5 5 5"/>
+                      </svg>
+                    </button>
+                  </th>
+                  <th>
+                    <button class="sort-btn" data-sort="rotaractor">
+                      <span>Rotaractor</span>
+                      <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 13l5 5 5-5M7 6l5-5 5 5"/>
+                      </svg>
+                    </button>
+                  </th>
+                  <th>
+                    <button class="sort-btn" data-sort="category">
+                      <span>Category</span>
+                      <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 13l5 5 5-5M7 6l5-5 5 5"/>
+                      </svg>
+                    </button>
+                  </th>
+                  <th>
+                    <button class="sort-btn" data-sort="district">
+                      <span>District / Club</span>
+                      <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 13l5 5 5-5M7 6l5-5 5 5"/>
+                      </svg>
+                    </button>
+                  </th>
+                  <th>Location</th>
+                  <th>WhatsApp</th>
+                  <th>
+                    <button class="sort-btn" data-sort="date">
+                      <span>Registered</span>
+                      <svg class="sort-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 13l5 5 5-5M7 6l5-5 5 5"/>
+                      </svg>
+                    </button>
+                  </th>
+                  <th class="th-actions">Details</th>
+                </tr>
+              </thead>
+              <tbody id="applicationsTableBody">
+                <tr>
+                  <td colspan="8" class="table-loading">
+                    <div class="loading-state">
+                      <div class="spinner-large"></div>
+                      <span>Loading community members...</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Mobile Cards Container -->
+          <div class="mobile-cards-container" id="mobileCardsContainer">
+            <div class="loading-state">
+              <div class="spinner-large"></div>
+              <span>Loading community members...</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- Central Configuration & Dedicated API Client -->
+  <script src="assets/js/config.js?v=3.0"></script>
+  <script src="assets/js/api.js?v=3.0"></script>
+
+  <!-- Admin Controller -->
+  <script src="assets/js/admin.js?v=3.0"></script>
+</body>
+</html>

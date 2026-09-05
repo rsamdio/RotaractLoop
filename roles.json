@@ -1,0 +1,183 @@
+{
+  "roles": [
+    {
+      "id": "vice-president",
+      "title": "Vice President",
+      "description": [
+        "Support the President in all executive functions and decision-making processes",
+        "Act as the President's primary advisor and strategic partner",
+        "Preside over meetings and events in the President's absence",
+        "Coordinate with various directors and committees to ensure smooth operations",
+        "Represent RSAMDIO at Zonal and international Rotaract events"
+      ]
+    },
+    {
+      "id": "general-secretary",
+      "title": "General Secretary",
+      "description": [
+        "Maintain all official records, minutes, and documentation of RSA MDIO",
+        "Coordinate communication between the executive secretariat, board and committee member of RSA MDIO",
+        "Manage correspondence with RISAO, Districts, and DRRs",
+        "Oversee the preparation and distribution of official communications and programs",
+        "Ensure all activities are in compliance with RSAMDIO Bylaws, Rotaract Constitution and Rotary Code of policies."
+      ]
+    },
+    {
+      "id": "secretary-reporting",
+      "title": "Secretary (Reporting / Communications / Initiatives / Special Programs)",
+      "description": [
+        "Manage the planning and distributions for programs of RSA MDIO",
+        "Manage all reporting requirements.",
+        "Coordinate special programs and initiatives.",
+        "Create and distribute newsletters, updates, and official communications",
+        "Maintain relationships with external partners and board members"
+      ]
+    },
+    {
+      "id": "treasurer",
+      "title": "Treasurer",
+      "description": [
+        "Manage all financial operations for RSAMDIO",
+        "Oversee fundraising (foundation) activities and programs",
+        "Maintain accurate financial records and ensure transparency across partners and stake holders",
+        "Coordinate with officials to ensure compliance and accuracy in data management across financial operations and foundation programs"
+      ]
+    },
+    {
+      "id": "sergeant-at-arms",
+      "title": "Sergeant at Arms",
+      "description": [
+        "Maintain order and decorum during all RSA MDIO meetings and events",
+        "Oversee event logistics and arrangements for the meetings",
+        "Support the President in maintaining meeting protocols and traditions"
+      ]
+    },
+    {
+      "id": "chairperson-roar",
+      "title": "Chairperson - R.O.A.R.",
+      "description": [
+        "Lead the RSAMDIO's Outstanding Awards & Recognition (R.O.A.R.)",
+        "Develop recognition criteria and evaluation processes",
+        "Coordinate with R.O.A.R. Committee, RSAMDIO Secretariat and the President to identify outstanding achievements",
+        "Corodinate & Organize recognition ceremony and award presentation"
+      ]
+    },
+    {
+      "id": "editor",
+      "title": "Editor",
+      "description": [
+        "Oversee all editorial content for RSAMDIO publications and communications",
+        "Edit and proofread all official documents, newsletters, and reports",
+        "Maintain editorial standards and brand consistency",
+        "Collaborate across teams for the creation of content for the RSAMDIO website and social media handles",
+        "Manage publication schedules and content calendars"
+      ]
+    },
+    {
+      "id": "zone-director",
+      "title": "Zone Director / Coordinator",
+      "description": [
+        "Coordinate activities and communication within assigned zones",
+        "Serve as the primary liaison between RSAMDIO and Districts",
+        "Facilitate Zone meetings, RSAMDIO initatives, and collaborative activities",
+        "Provide guidance and support to DRRs in achieving their goals and objectives",
+        "Represent RSAMDIO at Activities and Events of the Districts within the assigned Zone",
+        "Ensure that the Districts within the assigned Zone are well represented and supported by RSAMDIO",
+        "PS: Consider the time commitment and willingness to travel required to visit the Districts within the assigned Zone before nominating for this role"
+      ]
+    },
+    {
+      "id": "director-international-relations",
+      "title": "Director - International Relations",
+      "description": [
+        "Develop and maintain relationships with Rotaract organizations globally",
+        "Facilitate international service initiatives and exchanges with other Rotaract organizations globally",
+        "Facilitate cross-cultural learning and collaboration opportunities",
+        "Facilitate engagement and networking opportunities between District ISDs and International Service Chairs of member Districts",
+        "Manage international partnerships and memorandums of understanding"
+      ]
+    },
+    {
+      "id": "director-service-programs",
+      "title": "Director - Service Programs",
+      "description": [
+        "Develop and coordinate service initatives across the Rotaract South Asia",
+        "Support Districts in planning and executing service initiatives",
+        "Mange coordination and communication with Partners",
+        "Measure and report on service impact and outcomes to the Partners",
+        "Manage the Partnerships and Develeverables as per the Memorandums of Understanding with the Partners"
+      ]
+    },
+    {
+      "id": "director-foundation-programs",
+      "title": "Director - Foundation Programs",
+      "description": [
+        "Promote Rotary Foundation programs and iniatives",
+        "Educate members about Foundation grants and opportunities",
+        "Coordinate Foundation-related programs.",
+        "Maintain relationships with Rotary Foundation representatives and partners",
+        "Manage the Partnerships and Develeverables as per the Memorandums of Understanding with the Partners"
+      ]
+    },
+    {
+      "id": "director-learning-programs",
+      "title": "Director - Learning Programs",
+      "description": [
+        "Develop and coordinate educational and learning programs",
+        "Create learning resources and materials for Rotaractors, Club Leaders and District Leaders",
+        "Facilitate learning andleadership development iniatives",
+        "Coordinate and manage relationships with Rotary International Learning Programs representatives",
+        "Promote continuous learning and Rotary International Learning Programs"
+      ]
+    },
+    {
+      "id": "director-fellowship-programs",
+      "title": "Director - Fellowship Programs",
+      "description": [
+        "Develop and coordinate fellowship activites and networking opportunities",
+        "Coordinate Zonal fellowship activities and events.",
+        "Coordinate with the RI Director's office to integrate the Fellowship Programs and Initiatives",
+        "Create opportunities for Rotaractors to connect during RSA MDIO's events."
+      ]
+    },
+    {
+      "id": "director-membership-programs",
+      "title": "Director - Membership Programs",
+      "description": [
+        "Develop and execute strategies and initativies to help Districts promote growth and retention of Rotaract membership across South Asia",
+        "Coordinate and align with RI Director's office and RSA MDIO's goals and objectives",
+        "Promote the value and benefits of Rotaract membership"
+      ]
+    },
+    {
+      "id": "director-design-branding",
+      "title": "Director - Design & Branding",
+      "description": [
+        "Develop and maintain RSAMDIO's visual identity and brand guidelines",
+        "Create creatives and promos for communications, events, and marketing materials",
+        "Design publications, presentations, and digital assets",
+        "Ensure brand consistency across all RSAMDIO materials",
+        "Create Branding resources and templates for Rotaractors, Club Leaders and District Leaders"
+      ]
+    },
+    {
+      "id": "director-marketing-communications",
+      "title": "Director - Marketing & Communications",
+      "description": [
+        "Develop and execute strategies to promote initiatives and programs",
+        "Manage social media handles and digital campaigns",
+        "Provide narrative and content for creation of brand assets by Design & Branding Team ",
+        "Create marketing and promotional content for social media channels"
+      ]
+    },
+    {
+      "id": "director-web-tech",
+      "title": "Director - Web & Tech",
+      "description": [
+        "Manage RSAMDIO's website, digital platforms, and technology infrastructure",
+        "Develop and maintain web applications and digital tools",
+        "Provide technical support for initaives and programs of RSAMDIO"
+      ]
+    }
+  ]
+}

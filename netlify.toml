@@ -1,0 +1,48 @@
+# ==============================================================================
+# Netlify Configuration for Rotaract Loop
+# Unified redirects, security headers, and deployment settings
+# ==============================================================================
+
+[build]
+  publish = "."
+
+# ------------------------------------------------------------------------------
+# Redirects & URL Rewrites
+# ------------------------------------------------------------------------------
+
+# Redirect default Netlify subdomain to primary domain (if configured)
+[[redirects]]
+  from = "https://rsaapply.netlify.app/*"
+  to = "https://apply.rsamdio.com/:splat"
+  status = 301
+  force = true
+
+# Pretty URL rewrites for static pages
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 200
+
+[[redirects]]
+  from = "/roles"
+  to = "/roles.html"
+  status = 200
+
+[[redirects]]
+  from = "/committees"
+  to = "/committees.html"
+  status = 200
+
+# ------------------------------------------------------------------------------
+# Security Headers & Content Security Policy (CSP)
+# ------------------------------------------------------------------------------
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Cross-Origin-Opener-Policy = "unsafe-none"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://www.googletagmanager.com https://widget.konfhub.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.gstatic.com https://widget.konfhub.com https://*.konfhub.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://www.google-analytics.com https://*.googleapis.com https://*.firebaseio.com https://*.firebaseapp.com https://script.google.com https://script.googleusercontent.com; frame-src 'self' https://widget.konfhub.com https://*.konfhub.com https://apis.google.com https://*.firebaseapp.com https://script.google.com;"

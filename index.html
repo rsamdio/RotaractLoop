@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rotaract Loop | Where Rotaract Entrepreneurs Connect & Grow</title>
+  <meta name="description" content="Join Rotaract Loop, the business networking circle for Rotaract entrepreneurs and professionals. Where Rotaract entrepreneurs connect, collaborate, and grow." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#1e3a8a" />
+  <meta name="color-scheme" content="light" />
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://apply.rsamdio.org/" />
+
+  <!-- Open Graph -->
+  <meta property="og:url" content="https://apply.rsamdio.org/" />
+  <meta property="og:title" content="Rotaract Loop | Where Rotaract Entrepreneurs Connect & Grow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://apply.rsamdio.org/assets/images/ogimage.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:description" content="Join Rotaract Loop, the business networking circle for Rotaract entrepreneurs and professionals. Where Rotaract entrepreneurs connect, collaborate, and grow." />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Rotaract Loop | Where Rotaract Entrepreneurs Connect & Grow" />
+  <meta name="twitter:description" content="Join Rotaract Loop, the business networking circle for Rotaract entrepreneurs and professionals. Where Rotaract entrepreneurs connect, collaborate, and grow." />
+  <meta name="twitter:image" content="https://apply.rsamdio.org/assets/images/ogimage.webp" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css?v=2.9" />
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/webp" href="assets/images/favicon.webp" />
+  <link rel="alternate icon" href="assets/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/images/favicon.webp" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HG60DM0D09"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HG60DM0D09');
+  </script>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div class="layout" id="app">
+    <!-- Desktop Sidebar with Constant Fixed Header -->
+    <aside class="sidebar" aria-label="Business questionnaire steps">
+      <div class="sidebar__header">
+        <div class="sidebar__logo-wrap">
+          <img src="assets/images/rsamdio.webp" alt="RSAMDIO Logo" class="sidebar__logo" onerror="this.style.display='none'" />
+        </div>
+        <h1 class="sidebar__title">Rotaract Loop</h1>
+        <p class="sidebar__subtitle">Where Rotaract Entrepreneurs Connect &amp; Grow</p>
+      </div>
+      <div class="sidebar__content">
+        <nav class="question-nav" id="questionNav" aria-label="Questions"></nav>
+      </div>
+    </aside>
+
+    <main class="main" id="main" tabindex="-1">
+      <!-- Header with Progress Bar -->
+      <header class="header" aria-label="Survey header">
+        <div class="header__progress">
+          <div class="progress-info">
+            <span id="progressLabel">Registration Progress</span>
+            <span id="progressPercent">0%</span>
+          </div>
+          <div class="progress-bar" aria-hidden="true">
+            <div class="progress-bar__fill" id="progressFill" style="width:0%"></div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Mobile question navigation (shown on small screens) -->
+      <nav class="question-nav question-nav--mobile" id="questionNavMobile" aria-label="Questions"></nav>
+
+      <!-- Main Form Section -->
+      <section class="main__content">
+        <div class="question-container">
+          <div class="question__logos">
+            <img src="assets/images/rsamdio.webp" alt="RSAMDIO Logo" class="question__logo question__logo--rzi" onerror="this.style.display='none'" />
+          </div>
+
+          <article class="question" id="questionRoot" aria-live="polite"></article>
+        </div>
+      </section>
+
+      <!-- Navigation Footer -->
+      <footer class="footer">
+        <div class="footer__content">
+          <button id="btnBack" class="btn btn--secondary" type="button" aria-label="Previous question">
+            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            Back
+          </button>
+          <button id="btnNext" class="btn btn--primary" type="button" aria-label="Next question">
+            Next
+            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <button id="btnSubmit" class="btn btn--success hidden" type="button">
+            Join Rotaract Loop
+          </button>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay hidden" id="loadingOverlay" role="alert" aria-live="assertive">
+    <div class="loading-spinner" aria-hidden="true"></div>
+    <p class="loading-text">Joining Rotaract Loop...</p>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Submission Success Modal -->
+  <div class="modal hidden" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <div class="modal__backdrop" data-close="modal"></div>
+    <div class="modal__content">
+      <div class="success-content">
+        <div class="success-logos">
+          <img src="assets/images/rsamdio.webp" alt="RSAMDIO Logo" class="success-logo success-logo--rzi" onerror="this.style.display='none'" />
+        </div>
+
+        <svg class="success-icon" viewBox="0 0 52 52" aria-hidden="true">
+          <circle class="success-icon__circle" cx="26" cy="26" r="25" fill="none" />
+          <path class="success-icon__check" fill="none" d="M14 27 l7 7 l17 -17" />
+        </svg>
+
+        <h2 id="successTitle" class="success-title">Registration Submitted!</h2>
+        <div id="successIdBadge" class="success-id-badge hidden"></div>
+        <p class="success-message">
+          Thank you for registering to join <strong>Rotaract Loop</strong>.<br><br>
+          Your details have been securely recorded. Our team will review your profile and connect with you to welcome you into the circle.
+        </p>
+        <div class="success-actions">
+          <button class="btn btn--secondary" id="startNewSurvey" type="button">Register Another Member</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Configuration & API Client -->
+  <script src="assets/js/config.js?v=2.8"></script>
+  <script src="assets/js/api.js?v=2.8"></script>
+
+  <!-- Main Application Logic -->
+  <script src="assets/js/app.js?v=2.8" defer></script>
+</body>
+</html>
